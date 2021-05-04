@@ -1,7 +1,7 @@
 <div id="sidepanel">
     <div id="profile">
         <div class="wrap">
-            <img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+            <img id="profile-img" src={{ request.user.profile_image.url }} class="online" alt="" />
             <p>Mike Ross</p>
             <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
             <div id="status-options">

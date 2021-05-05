@@ -1,6 +1,6 @@
-# from django.urls import path
-# from .views import account_screen_view 
+from django.urls import path
+from .views import registerPage
 
-# urlpatterns = [
-#     path('', account_screen_view, name='accounts'),
-# ]
+urlpatterns = [
+    path('register/', registerPage, name='register'),
+]

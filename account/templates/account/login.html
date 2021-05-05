@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock  %}
+{% block stylesheet %}{% static 'account/css/login.css' %}{% endblock  %}
+{% block content %}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+        <img src={% static 'base/images/chatdefault/dummy_image.png' %} id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="email" id="login" class="fadeIn second" name="email" placeholder="login">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+        {% for field in login_form %}
+				<p>
+				{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+				{% endfor %}
+				</p>
+				{% endfor %}
+				{% if login_form.non_field_errors %}
+				<div style="color: red">
+				<p>{{login_form.non_field_errors}}</p>
+				</div>
+
+				{% endif %}
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <div>
+        <a class="underlineHover" href={% url 'register' %}>Register</a>
+      </div>
+      {% comment %} <div>
+        <a class="underlineHover" href={% url 'reset_password' %}>Reset Password</a>
+      </div> {% endcomment %}
+        
+    </div>
+
+    </div>
+</div>
+{% endblock  %}
